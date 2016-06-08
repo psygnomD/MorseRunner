@@ -50,12 +50,12 @@ end;
 
 function SecondsToBlocks(Sec: Single): integer;
 begin
-  Result := Round(DEFAULTRATE / Ini.BufSize * Sec);
+  Result := Round(11025 / Ini.BufSize * Sec);
 end;
 
 function BlocksToSeconds(Blocks: Single): Single;
 begin
-  Result := Blocks * Ini.BufSize / DEFAULTRATE;
+  Result := Blocks * Ini.BufSize / 11025;
 end;
 
 function RndUniform: Single;

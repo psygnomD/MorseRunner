@@ -28,7 +28,7 @@ type
     T: TDateTime;
     Call, TrueCall: string;
     Rst, TrueRst: integer;
-    Nr, TrueNr: integer;
+    Nr, TrueNr: string;
     Pfx: string;
     Dupe: boolean;
     Err: string;
@@ -222,7 +222,7 @@ begin
     Qso.T := BlocksToSeconds(Tst.BlockNumber) /  86400;
     Qso.Call := StringReplace(Edit1.Text, '?', '', [rfReplaceAll]);
     Qso.Rst := StrToInt(Edit2.Text);
-    Qso.Nr := StrToInt(Edit3.Text);
+    Qso.Nr := Trim(Edit3.Text);
     Qso.Pfx := ExtractPrefix(Qso.Call);
     {if PfxList.Find(Qso.Pfx, Idx) then Qso.Pfx := '' else }PfxList.Add(Qso.Pfx);
     if Ini.RunMode = rmHst then Qso.Pfx := IntToStr(CallToScore(Qso.Call));
@@ -252,7 +252,7 @@ begin
   //wipe
   MainForm.WipeBoxes;
   //inc NR
-  Inc(Tst.Me.NR);
+  Tst.Me.NR := IntToStr(StrToInt(Tst.Me.NR) + 1);
 end;
 
 

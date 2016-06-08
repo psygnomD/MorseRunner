@@ -772,7 +772,6 @@ object MainForm: TMainForm
     end
   end
   object AlSoundOut1: TAlSoundOut
-    SamplesPerSec = 11025
     BufCount = 8
     OnBufAvailable = AlSoundOut1BufAvailable
     Left = 384
